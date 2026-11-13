@@ -1,0 +1,90 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@open-dcp/angular-chart": {
+      "projectType": "library",
+      "root": "projects/open-dcp/angular-chart",
+      "sourceRoot": "projects/open-dcp/angular-chart/src",
+      "prefix": "odcp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/open-dcp/angular-chart/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/open-dcp/angular-chart/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/open-dcp/angular-chart/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/open-dcp/angular-chart/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/open-dcp/angular-chart/.storybook",
+            "browserTarget": "@open-dcp/angular-chart:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/open-dcp/angular-chart"
+            ],
+            "port": 6007,
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/open-dcp/angular-chart/src/styles",
+                "projects/open-dcp/angular-chart/node_modules/@open-dcp/styles",
+                "node_modules/@open-dcp/styles"
+              ]
+            },
+            "styles": [
+              "projects/open-dcp/angular-chart/src/styles.scss"
+            ]
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/open-dcp/angular-chart/.storybook",
+            "browserTarget": "@open-dcp/angular-chart:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/open-dcp/angular-chart"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/open-dcp/angular-chart/src/styles",
+                "projects/open-dcp/angular-chart/node_modules/@open-dcp/styles",
+                "node_modules/@open-dcp/styles"
+              ]
+            },
+            "styles": [
+              "projects/open-dcp/angular-chart/src/styles.scss"
+            ],
+            "outputDir": "storybook-static"
+          }
+        }
+      }
+    }
+  }
+}
