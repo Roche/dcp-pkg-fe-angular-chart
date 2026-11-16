@@ -1,6 +1,6 @@
 {
   "name": "angular-chart",
-  "version": "17.0.6",
+  "version": "17.0.9",
   "scripts": {
     "ng": "ng",
     "prestart": "npm install",
@@ -24,7 +24,7 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
-    "@open-dcp/angular-styles": ">=17.0.40",
+    "@open-dcp/angular-styles": ">=17.0.41",
     "@open-dcp/styles": ">=0.1.27",
     "esbuild": "0.25.0",
     "http-proxy-middleware": "2.0.9",
